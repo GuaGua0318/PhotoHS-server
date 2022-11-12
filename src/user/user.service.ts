@@ -12,8 +12,8 @@ export class UserService {
   ) {}
   create(createUserDto: CreateUserDto) {
     const data = new User();
-    data.username = 'guagua';
-    data.password = '123456';
+    data.username = createUserDto.username;
+    data.password = createUserDto.password;
     this.user.save(data);
   }
 
