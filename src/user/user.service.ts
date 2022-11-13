@@ -7,18 +7,27 @@ import { Repository, Like } from 'typeorm';
 
 @Injectable()
 export class UserService {
-  constructor(
-    @InjectRepository(User) private readonly user: Repository<User>,
-  ) {}
-  create(createUserDto: CreateUserDto) {
-    const data = new User();
-    data.username = createUserDto.username;
-    data.password = createUserDto.password;
-    this.user.save(data);
+  constructor(@InjectRepository(User) private user: Repository<User>) {}
+  async create(createUserDto: CreateUserDto) {
+    const user = await this.user.findOneBy({
+      username: createUserDto.username,
+    });
+    if (!user) {
+      const data = new User();
+      data.username = createUserDto.username;
+      data.password = createUserDto.password;
+      this.user.save(data);
+    } else {
+      return '已经存在';
+    }
   }
 
-  findAll() {
-    return 'dududud';
+  findAll(query: { username: string }) {
+    return this.user.find({
+      where: {
+        username: Like(`%${query.username}%`),
+      },
+    });
   }
 
   findOne(id: number) {
