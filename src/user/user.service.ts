@@ -1,33 +1,22 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, Like } from 'typeorm';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectRepository(User) private user: Repository<User>) {}
-  async create(createUserDto: CreateUserDto) {
-    const user = await this.user.findOneBy({
-      username: createUserDto.username,
-    });
-    if (!user) {
-      const data = new User();
-      data.username = createUserDto.username;
-      data.password = createUserDto.password;
-      this.user.save(data);
-    } else {
-      return '已经存在';
-    }
+  constructor(
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
+  ) {}
+  create(createUserDto: CreateUserDto) {
+    return 'This action adds a new user';
   }
 
-  findAll(query: { username: string }) {
-    return this.user.find({
-      where: {
-        username: Like(`%${query.username}%`),
-      },
-    });
+  findAll() {
+    return `This action returns all user`;
   }
 
   findOne(id: number) {

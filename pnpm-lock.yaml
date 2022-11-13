@@ -15,6 +15,7 @@ specifiers:
   '@types/supertest': ^2.0.11
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
+  bcryptjs: ^2.4.3
   class-transformer: ^0.5.1
   class-validator: ^0.13.2
   cors: ^2.8.5
@@ -23,7 +24,6 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   jest: 28.1.2
   mysql2: ^2.3.3
-  nanoid: ^4.0.0
   prettier: ^2.3.2
   reflect-metadata: ^0.1.13
   rimraf: ^3.0.2
@@ -36,6 +36,7 @@ specifiers:
   tsconfig-paths: 4.0.0
   typeorm: ^0.3.10
   typescript: ^4.3.5
+  uuid: ^9.0.0
 
 dependencies:
   '@nestjs/common': 9.2.0_x6yqyveuahcdef4z4mxykmuv6a
@@ -43,15 +44,16 @@ dependencies:
   '@nestjs/mapped-types': 1.2.0_qdpnjncnmntjmcz6x55b5h3mje
   '@nestjs/platform-express': 9.2.0_pf2fb646rsvo5szivgkaevcpvi
   '@nestjs/typeorm': 9.0.1_2ekyp7igf6cbpgvvmiypy4gzpu
+  bcryptjs: 2.4.3
   class-transformer: 0.5.1
   class-validator: 0.13.2
   cors: 2.8.5
   mysql2: 2.3.3
-  nanoid: 4.0.0
   reflect-metadata: 0.1.13
   rimraf: 3.0.2
   rxjs: 7.5.7
   typeorm: 0.3.10_pa4ea3wjef6s4gsskhbyci3cte
+  uuid: 9.0.0
 
 devDependencies:
   '@nestjs/cli': 9.1.5
@@ -1741,6 +1743,10 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+
+  /bcryptjs/2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
+    dev: false
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -3823,12 +3829,6 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       lru-cache: 4.1.5
-    dev: false
-
-  /nanoid/4.0.0:
-    resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
-    engines: {node: ^14 || ^16 || >=18}
-    hasBin: true
     dev: false
 
   /natural-compare-lite/1.4.0:
