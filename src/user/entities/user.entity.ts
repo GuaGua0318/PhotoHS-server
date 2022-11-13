@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+const bcrypt = require('bcryptjs');
+import { Exclude } from 'class-transformer';
 
 @Entity('user')
 export class User {
@@ -11,9 +13,15 @@ export class User {
   @Column()
   nickname: string; //昵称
 
+  @Exclude() //过滤掉密码
   @Column()
   password: string; //密码
 
   @Column()
   avator: string; //头像
+
+  @BeforeInsert()
+  async encryptPwd() {
+    this.password = await bcrypt.hashSync(this.password);
+  }
 }
