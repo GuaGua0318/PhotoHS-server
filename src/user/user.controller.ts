@@ -8,6 +8,7 @@ import {
   Delete,
   UseInterceptors,
   ClassSerializerInterceptor,
+  Req,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -21,6 +22,12 @@ export class UserController {
   @Post('register')
   register(@Body() createUserDto: CreateUserDto) {
     return this.userService.register(createUserDto);
+  }
+
+  //获取用户信息
+  @Get()
+  getUserInfo(@Req() req) {
+    return req.user;
   }
 
   @Get()
