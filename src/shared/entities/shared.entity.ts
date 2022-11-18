@@ -9,7 +9,7 @@ export class Shared {
   @Column()
   detail: string;
 
-  //图片
+  //图片地址
   @Column()
   img: string;
 }

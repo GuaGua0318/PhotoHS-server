@@ -18,13 +18,13 @@ import { CreateSharedDto } from './dto/create-shared.dto';
 export class SharedController {
   constructor(private readonly sharedService: SharedService) {}
 
-  @Post()
+  @Post('add')
   @UseGuards(AuthGuard('jwt'))
   async create(@Body() createSharedDto: CreateSharedDto, @Req() req) {
     return this.sharedService.create(req.user, createSharedDto);
   }
 
-  @Get()
+  @Get('all')
   findAll() {
     return this.sharedService.findAll();
   }
