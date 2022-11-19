@@ -21,7 +21,9 @@ export class SharedService {
   }
 
   async myShared(username: any) {
-    return await this.sharedRepository.find(username.username);
+    return await this.sharedRepository.find({
+      where: { username: username.username },
+    });
   }
 
   update(id: number, updateSharedDto: UpdateSharedDto) {
