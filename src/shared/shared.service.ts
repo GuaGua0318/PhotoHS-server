@@ -20,8 +20,8 @@ export class SharedService {
     return await this.sharedRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} shared`;
+  async myShared(username: any) {
+    return await this.sharedRepository.find(username.username);
   }
 
   update(id: number, updateSharedDto: UpdateSharedDto) {

@@ -21,6 +21,7 @@ export class AuthService {
     const info = {
       nickname: user.nickname,
       avator: user.avator,
+      username: user.username,
     };
     return { token, info };
   }

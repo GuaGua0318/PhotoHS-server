@@ -12,4 +12,8 @@ export class Shared {
   //图片地址
   @Column()
   img: string;
+
+  //图片发送用户
+  @Column()
+  username: string;
 }
