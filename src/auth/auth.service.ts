@@ -18,8 +18,11 @@ export class AuthService {
       id: user.id,
       username: user.username,
     });
-
-    return { token };
+    const info = {
+      nickname: user.nickname,
+      avator: user.avator,
+    };
+    return { token, info };
   }
 
   create(createAuthDto: CreateAuthDto) {
