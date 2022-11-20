@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { SharedModule } from './shared/shared.module';
+import { PrivateModule } from './private/private.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
     UserModule,
     AuthModule,
     SharedModule,
+    PrivateModule,
   ],
   controllers: [AppController],
   providers: [AppService],
